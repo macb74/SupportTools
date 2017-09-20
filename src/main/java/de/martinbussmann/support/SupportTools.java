@@ -3,12 +3,9 @@ package de.martinbussmann.support;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.martinbussmann.support.functions.PDFBib;
+import de.martinbussmann.support.pdfbib.PDFBib;
 
-/**
- * Hello world!
- *
- */
+
 public class SupportTools 
 {
 	
@@ -16,13 +13,13 @@ public class SupportTools
     private static final String HELP = "-help";
     private static final String DUMMY = "-dummy";
     private static final String TEMPLATE = "-template";
-    private static final String OUT = "-out";   
+    private static final String OUT = "-out";
+    private static final String NUMBERS = "-numbers";  
     private static String arg;
 	    
     public static void main( String[] args )
     {
         Map<String, String> arguments = new HashMap<String, String>();
-        String function = null;
         
         for (int i = 0; i < args.length; i++) 
         {
@@ -49,6 +46,11 @@ public class SupportTools
             {
             	arguments.put("OUT", args[i + 1] .trim());
                 i += 1;
+            }
+            else if (arg.equals(NUMBERS) && ((i + 1) < args.length)) 
+            {
+            	arguments.put("NUMBERS", args[i + 1] .trim());
+            	i += 1;
             }
             else 
             {
