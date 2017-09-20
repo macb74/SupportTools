@@ -1,4 +1,4 @@
-package de.martinbussmann.support.functions;
+package de.martinbussmann.support.pdfbib;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

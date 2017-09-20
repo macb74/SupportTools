@@ -3,12 +3,9 @@ package de.martinbussmann.support;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.martinbussmann.support.functions.PDFBib;
+import de.martinbussmann.support.pdfbib.PDFBib;
 
-/**
- * Hello world!
- *
- */
+
 public class SupportTools 
 {
 	
@@ -22,7 +19,6 @@ public class SupportTools
     public static void main( String[] args )
     {
         Map<String, String> arguments = new HashMap<String, String>();
-        String function = null;
         
         for (int i = 0; i < args.length; i++) 
         {
