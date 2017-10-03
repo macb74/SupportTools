@@ -72,8 +72,8 @@ public class PDFBib
 	        String text = null;
 	        
 	        while(line < numbers.size()) {
-                        text = numbers.get(line).split(",")[0].trim();
-		        fontColor = getColor(numbers.get(line).split(",")[1].trim());
+                text = numbers.get(line).split(",")[0].trim();
+		        fontColor = getColor(numbers.get(line).split(",")[1].trim().toUpperCase());
 		        int templatePage = Integer.parseInt(numbers.get(line).split(",")[2].trim());
 		        merger.merge(template, templatePage, templatePage);
 		        addBib(pdf, font, fontColor, fontSize, line+1, text);
@@ -109,7 +109,7 @@ public class PDFBib
     	try {
         	Path path = Paths.get(NRFILE);
 			Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
-			list = lines.map(String::toUpperCase).collect(Collectors.toList());
+			list = lines.collect(Collectors.toList());
 			lines.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
