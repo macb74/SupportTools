@@ -58,8 +58,8 @@ public class PDFBib
         
 		try {
 	        List<String> numbers = getNumbers();
-	        
-			pdf = new PdfDocument(new PdfWriter(new PdfWriter(DEST)));
+			
+		pdf = new PdfDocument(new PdfWriter(new PdfWriter(DEST)));
 
 	        PdfDocument template = new PdfDocument(new PdfReader(TEMPLATE));
 	        PdfMerger merger = new PdfMerger(pdf);
@@ -72,11 +72,11 @@ public class PDFBib
 	        String text = null;
 	        
 	        while(line < numbers.size()) {
-				text = numbers.get(line).split(",")[0].trim();
+                        text = numbers.get(line).split(",")[0].trim();
 		        fontColor = getColor(numbers.get(line).split(",")[1].trim());
 		        int templatePage = Integer.parseInt(numbers.get(line).split(",")[2].trim());
 		        merger.merge(template, templatePage, templatePage);
-				addBib(pdf, font, fontColor, fontSize, line+1, text);
+		        addBib(pdf, font, fontColor, fontSize, line+1, text);
 		        line++;
 	        }
 	        
@@ -136,7 +136,7 @@ public class PDFBib
         over.saveState();
         //over.restoreState();
 
-// 		  Transparent oferlay
+// 	  Transparent oferlay
 //        p = new Paragraph("This TRANSPARENT watermark is added ON TOP OF the existing content").setFont(font).setFontSize(15);
 //        over.saveState();
 //        PdfExtGState gs1 = new PdfExtGState();
