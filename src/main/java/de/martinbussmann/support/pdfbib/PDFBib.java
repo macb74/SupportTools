@@ -68,7 +68,7 @@ public class PDFBib
 
 	        Color fontColor = Color.BLACK;
 	        int line = 0;
-	        int fontSize = 250;
+	        int fontSize = 240;
 	        String text = null;
 	        
 	        while(line < numbers.size()) {
@@ -125,7 +125,7 @@ public class PDFBib
         Rectangle pagesize = pdfPage.getPageSizeWithRotation();
         pdfPage.setIgnorePageRotationForContent(true);
         float x = (pagesize.getLeft() + pagesize.getRight()) / 2;
-        float y = (pagesize.getTop() + pagesize.getBottom()) / 2;
+        float y = ((pagesize.getTop() + pagesize.getBottom()) / 2) - 10;
         
         PdfCanvas over = new PdfCanvas(pdfDoc.getPage(page));
         over.setFillColor(fontColor);
