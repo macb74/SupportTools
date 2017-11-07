@@ -125,7 +125,7 @@ public class PDFBib
         Rectangle pagesize = pdfPage.getPageSizeWithRotation();
         pdfPage.setIgnorePageRotationForContent(true);
         float x = (pagesize.getLeft() + pagesize.getRight()) / 2;
-        float y = ((pagesize.getTop() + pagesize.getBottom()) / 2) - 10;
+        float y = ((pagesize.getTop() + pagesize.getBottom()) / 2) - 35;
         
         PdfCanvas over = new PdfCanvas(pdfDoc.getPage(page));
         over.setFillColor(fontColor);
