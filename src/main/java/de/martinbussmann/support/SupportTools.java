@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.martinbussmann.support.pdfbib.PDFBib;
+import de.martinbussmann.support.sound.TrainingSound;
 
 
 public class SupportTools 
@@ -14,7 +15,12 @@ public class SupportTools
     private static final String DUMMY = "-dummy";
     private static final String TEMPLATE = "-template";
     private static final String OUT = "-out";
-    private static final String NUMBERS = "-numbers";  
+    private static final String NUMBERS = "-numbers";
+    private static final String LOOPS = "-loops";  
+    private static final String START = "-start";  
+    private static final String SCALE = "-scale";
+    private static final String SOUNDFILE = "-soundfile";
+
     private static String arg;
 	    
     public static void main( String[] args )
@@ -52,6 +58,26 @@ public class SupportTools
             	arguments.put("NUMBERS", args[i + 1] .trim());
             	i += 1;
             }
+            else if (arg.equals(LOOPS) && ((i + 1) < args.length)) 
+            {
+            	arguments.put("LOOPS", args[i + 1] .trim());
+            	i += 1;
+            }
+            else if (arg.equals(SCALE) && ((i + 1) < args.length)) 
+            {
+            	arguments.put("SCALE", args[i + 1] .trim());
+            	i += 1;
+            }
+            else if (arg.equals(START) && ((i + 1) < args.length)) 
+            {
+            	arguments.put("START", args[i + 1] .trim());
+            	i += 1;
+            }
+            else if (arg.equals(SOUNDFILE) && ((i + 1) < args.length)) 
+            {
+            	arguments.put("SOUNDFILE", args[i + 1] .trim());
+            	i += 1;
+            }
             else 
             {
 				usage();
@@ -65,6 +91,9 @@ public class SupportTools
     	if(arguments.get("FUNCTION").equals("PDFBib")) {
     	    new PDFBib(arguments);
     	}
+    	if(arguments.get("FUNCTION").equals("TrainingSound")) {
+    	    new TrainingSound(arguments);
+    	}
     }
     
     private static void usage()
@@ -73,8 +102,12 @@ public class SupportTools
                 + "\nFunctions:\n"
                 + "PDFBib\n"
                 + "  -template <template.pdf>                     : template file\n"
-                + "  -out      <output.pdf>                       : output file\n";
-        System.err.println(message);
-        System.exit( 1 );
+                + "  -out      <output.pdf>                       : output file\n"
+        		+ "TimingSound\n"
+        		+ "  -loops <5>                                   : \n"
+        		+ "  -start <20>                       		      : \n"
+        		+ "  -scale <2>                       		      : \n";
+        	System.err.println(message);
+        	System.exit( 1 );
     }    
 }
