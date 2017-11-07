@@ -41,8 +41,8 @@ public class PDFBib
     {
     	Map<String, String> arguments = new HashMap<String, String>();
 		arguments.put("OUT", "output.pdf");
-		TEMPLATE = arguments.put("TEMPLATE", "template.pdf");
-		NRFILE = arguments.put("NUMBERS", "numbers.csv");
+		arguments.put("TEMPLATE", "template.pdf");
+		arguments.put("NUMBERS", "numbers.csv");
     	new PDFBib(arguments);
     }
     
@@ -59,7 +59,7 @@ public class PDFBib
 		try {
 	        List<String> numbers = getNumbers();
 			
-		pdf = new PdfDocument(new PdfWriter(new PdfWriter(DEST)));
+	        pdf = new PdfDocument(new PdfWriter(new PdfWriter(DEST)));
 
 	        PdfDocument template = new PdfDocument(new PdfReader(TEMPLATE));
 	        PdfMerger merger = new PdfMerger(pdf);
