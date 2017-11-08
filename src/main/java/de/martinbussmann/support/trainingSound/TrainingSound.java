@@ -15,9 +15,9 @@ public class TrainingSound {
 	public static void main( String[] args )
     {
     	Map<String, String> arguments = new HashMap<String, String>();
-		arguments.put("LOOPS", "5");
-		arguments.put("START", "20");
-		arguments.put("SCALE", "2");
+		arguments.put("LOOPS", "2");
+		arguments.put("START", "10");
+		arguments.put("SCALE", "3");
 		arguments.put("SOUNDFILE", "start-beeps.wav");
     	new TrainingSound(arguments);
     }
@@ -33,7 +33,7 @@ public class TrainingSound {
 		StopWatch stopWatch = new StopWatch();
 		long lastPlay   = 0;
 		long timeToPlay = START;
-		long timeInSec 	 = 0;
+		long timeInSec  = 0;
 		int loop        = 0;
 		
 		playSound();
@@ -44,17 +44,12 @@ public class TrainingSound {
         	timeInSec = stopWatch.getTime() / 1000;
         	
         	if((lastPlay != timeInSec) && timeInSec == timeToPlay) {
-            	System.out.println(timeInSec);
+            	System.out.println("Time: " + timeInSec + " Len: " + START + " Scale: " + SCALE + " Loops: " + LOOPS );
         		playSound();
         		loop++;
         		if(loop == LOOPS) {
         			loop = 0;
         			START = START - SCALE;
-        		}
-        		
-        		if(START < 5) {
-        			SCALE = SCALE / 2;
-        			LOOPS = LOOPS / 2;
         		}
         		
         		timeToPlay = timeToPlay + START;
