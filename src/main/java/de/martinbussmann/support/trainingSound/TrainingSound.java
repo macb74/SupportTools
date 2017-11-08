@@ -15,7 +15,7 @@ public class TrainingSound {
 	public static void main( String[] args )
     {
     	Map<String, String> arguments = new HashMap<String, String>();
-		arguments.put("LOOPS", "2");
+		arguments.put("LOOPS", "3");
 		arguments.put("START", "10");
 		arguments.put("SCALE", "3");
 		arguments.put("SOUNDFILE", "start-beeps.wav");
@@ -45,8 +45,10 @@ public class TrainingSound {
         	
         	if((lastPlay != timeInSec) && timeInSec == timeToPlay) {
             	System.out.println("Time: " + timeInSec + " Len: " + START + " Scale: " + SCALE + " Loops: " + LOOPS );
-        		playSound();
-        		loop++;
+        		
+            	playSound();
+        		
+            	loop++;
         		if(loop == LOOPS) {
         			loop = 0;
         			START = START - SCALE;
