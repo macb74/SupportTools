@@ -44,7 +44,7 @@ public class TrainingSound {
         	timeInSec = stopWatch.getTime() / 1000;
         	
         	if((lastPlay != timeInSec) && timeInSec == timeToPlay) {
-            	System.out.println(timeInSec);
+            	System.out.println("Time: " + timeInSec + " Scale: " + SCALE + " Loops: " + LOOPS );
         		playSound();
         		loop++;
         		if(loop == LOOPS) {
