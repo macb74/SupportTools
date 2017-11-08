@@ -1,4 +1,4 @@
-package de.martinbussmann.support.sound;
+package de.martinbussmann.support.trainingSound;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +18,7 @@ public class TrainingSound {
 		arguments.put("LOOPS", "5");
 		arguments.put("START", "20");
 		arguments.put("SCALE", "2");
-		arguments.put("SOUNDFILE", "97879__robinhood76__01818-start-beeps.wav");
+		arguments.put("SOUNDFILE", "start-beeps.wav");
     	new TrainingSound(arguments);
     }
 	
@@ -33,8 +33,10 @@ public class TrainingSound {
 		StopWatch stopWatch = new StopWatch();
 		long lastPlay   = 0;
 		long timeToPlay = START;
-		long timeInSec	= 0;
+		long timeInSec 	 = 0;
 		int loop        = 0;
+		
+		playSound();
 		
 		stopWatch.start();
         while(run) {
@@ -49,8 +51,15 @@ public class TrainingSound {
         			loop = 0;
         			START = START - SCALE;
         		}
+        		
+        		if(START < 5) {
+        			SCALE = SCALE / 2;
+        			LOOPS = LOOPS / 2;
+        		}
+        		
         		timeToPlay = timeToPlay + START;
         	}
+        	
         	if (START <= 3) {
         		run = false;
         	}

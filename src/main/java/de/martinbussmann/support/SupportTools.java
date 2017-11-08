@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.martinbussmann.support.pdfbib.PDFBib;
-import de.martinbussmann.support.sound.TrainingSound;
+import de.martinbussmann.support.trainingSound.TrainingSound;
 
 
 public class SupportTools 

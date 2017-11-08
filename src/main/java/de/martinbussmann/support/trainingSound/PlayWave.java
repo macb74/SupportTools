@@ -1,4 +1,4 @@
-package de.martinbussmann.support.sound;
+package de.martinbussmann.support.trainingSound;
 
 import java.io.File; 
 import java.io.IOException; 
