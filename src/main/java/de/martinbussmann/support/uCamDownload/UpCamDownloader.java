@@ -70,7 +70,7 @@ public class UpCamDownloader {
 		//while(END > getCurrentTimeStamp()) {
 	    while(true) {
     		try {
-				
+			
 	    		client = openConnection();
 		    	List<String> remoteFiles = getFileList("http://" + HOST + "/sd/");
 				List<String> localFiles = getLocalFiles();
