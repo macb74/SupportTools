@@ -20,7 +20,10 @@ public class SupportTools
     private static final String START = "-start";  
     private static final String SCALE = "-scale";
     private static final String SOUNDFILE = "-soundfile";
+    private static final String END = "-end";
+    private static final String LOCATION = "-location";
 
+    
     private static String arg;
 	    
     public static void main( String[] args )
@@ -78,6 +81,16 @@ public class SupportTools
             	arguments.put("SOUNDFILE", args[i + 1] .trim());
             	i += 1;
             }
+            else if (arg.equals(END) && ((i + 1) < args.length)) 
+            {
+            	arguments.put("END", args[i + 1] .trim());
+            	i += 1;
+            }
+            else if (arg.equals(LOCATION) && ((i + 1) < args.length)) 
+            {
+            	arguments.put("LOCATION", args[i + 1] .trim());
+            	i += 1;
+            }
             else 
             {
 				usage();
@@ -94,6 +107,9 @@ public class SupportTools
     	if(arguments.get("FUNCTION").equals("TrainingSound")) {
     	    new TrainingSound(arguments);
     	}
+    	if(arguments.get("FUNCTION").equals("UpCamDownload")) {
+    	    new TrainingSound(arguments);
+    	}
     }
     
     private static void usage()
@@ -106,7 +122,11 @@ public class SupportTools
         		+ "TimingSound\n"
         		+ "  -loops <5>                                   : \n"
         		+ "  -start <20>                       		      : \n"
-        		+ "  -scale <2>                       		      : \n";
+        		+ "  -scale <2>                       		      : \n"
+				+ "UpCamDownload\n"
+				+ "  -start <20172606154515>                      : \n"
+				+ "  -end <20172606154515>            		      : \n"
+				+ "  -location </output/>            		      : \n";
         	System.err.println(message);
         	System.exit( 1 );
     }    
