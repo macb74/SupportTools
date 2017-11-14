@@ -67,9 +67,14 @@ public class UpCamDownloader {
     	END   = Long.valueOf(arguments.get("END"));
     	HOST  = arguments.get("HOST");
     	    	    	
+<<<<<<< HEAD
 		//while(END > getCurrentTimeStamp()) {
 	    while(true) {
     		try {
+=======
+		while(END > getCurrentTimeStamp()) {
+	    	try {
+>>>>>>> ef815d52bf9beb9046212f3140ddb09958fc56f4
 				
 	    		client = openConnection();
 		    	List<String> remoteFiles = getFileList("http://" + HOST + "/sd/");
@@ -118,7 +123,10 @@ public class UpCamDownloader {
 			    	}
 					
 				} finally {
+<<<<<<< HEAD
 					log.info("done");
+=======
+>>>>>>> ef815d52bf9beb9046212f3140ddb09958fc56f4
 				    response.close();
 				}
 				
