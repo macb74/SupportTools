@@ -67,8 +67,8 @@ public class UpCamDownloader {
     	END   = Long.valueOf(arguments.get("END"));
     	HOST  = arguments.get("HOST");
     	    	    	
-		//while(END > getCurrentTimeStamp()) {
-	    while(true) {
+		boolean run = true;
+	    while(run) {
     		try {
 
 	    		client = openConnection();
@@ -87,7 +87,10 @@ public class UpCamDownloader {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+    		
+    		if(END > getCurrentTimeStamp()) { run = false; }
 	    }
+	    
 	}
 	
     private void downloadFiles(List<String> validFiles, String url) {
